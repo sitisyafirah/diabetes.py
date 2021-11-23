@@ -18,9 +18,9 @@ if show:
     st.write("## Diabetes Rates by Country 2021")
     st.write("Please input country's name: (Example:India)")
     c=st.text_input(" ")
-    sv=pd.read_csv('csvData.csv')
+    sv=pd.read_csv('Data.csv')
     d=sv[sv['Country'] == c]
-    st.write("The number of diabeter's population is: ",d)
+    st.write("The number of diabeter's rate in % is: ",d)
 
     option = st.selectbox(
         'Select Diabetes Rates by Country 2021 ', 
@@ -28,10 +28,10 @@ if show:
 
     if option=='Top 10':
         result1 = sv.head(10)
-        st.write('Top 10 Diabetes Rates: ',result1)
+        st.write('Top 10 Diabetes Rates in % : ',result1)
     elif option=='Last 10':
         result2 = sv.tail(10)
-        st.write('Last 10 Diabetes Rates: ',result2)
+        st.write('Last 10 Diabetes Rates in % : ',result2)
     else:
         st.write("Please select")
 
