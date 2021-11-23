@@ -35,6 +35,7 @@ else:
     st.write("Please select")
 
 st.write("Now, lets fill the diabetes prediction form.(Please untick hide button)")
+sr.write("After fill the form. Please click predict to get the result")
 
 st.sidebar.header('Diabetes Prediction')
 select = st.sidebar.selectbox('Select Form', ['Form 1'], key='1')
@@ -49,7 +50,7 @@ if not st.sidebar.checkbox("Hide and Refill Form", True, key='1'):
     bmi = st.number_input("Body mass index (weight in kg/(height in m)^2):")
     dpf = st.number_input("Diabetes Pedigree Function:")
     age = st.number_input("Age:")
-    submit = st.button('Predict')
+submit = st.button('Predict')
 if submit:
         prediction = classifier.predict([[pregnancy, glucose, bp, skin, insulin, bmi, dpf, age]])
         if prediction == 0:
