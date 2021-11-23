@@ -15,10 +15,10 @@ vid=open("example.mp4","rb")
 st.video(vid)
 st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True)
 st.write("Diabetes Rates by Country 2021")
-sv=pd.read_csv('csvData.csv')
-d=sv[sv['Country'] == c]
 st.write("Please input country's name: (Example:India)")
 c=st.text_input(" ")
+sv=pd.read_csv('csvData.csv')
+d=sv[sv['Country'] == c]
 st.write("The number of diabeter's population is: ",d)
 
 option = st.selectbox(
@@ -26,10 +26,10 @@ option = st.selectbox(
     ('Top 10','Last 10'))
 
 if option=='Top 10':
-    t=tallest.head(10)
+    t=sv.tallest.head(10)
     st.write('Top 10 Diabetes Rates: ',t)
 elif option=='Last 10':
-    l=tallest.tail(10)
+    l=sv.tallest.tail(10)
     st.write('Last 10 Diabetes Rates: ',l)
 else:
     st.write("Please select")
