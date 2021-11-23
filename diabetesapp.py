@@ -26,11 +26,11 @@ option = st.selectbox(
     ('Top 10','Last 10'))
 
 if option=='Top 10':
-    t=sv.tallest.head(10)
-    st.write('Top 10 Diabetes Rates: ',t)
+    result1 = sv.head(10)
+    st.write('Top 10 Diabetes Rates: ',result1)
 elif option=='Last 10':
-    l=sv.tallest.tail(10)
-    st.write('Last 10 Diabetes Rates: ',l)
+    result2 = sv.tail(10)
+    st.write('Last 10 Diabetes Rates: ',result2)
 else:
     st.write("Please select")
 
