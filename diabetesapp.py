@@ -14,7 +14,7 @@ st.write("DIABETES AWARENESS BECAUSE IT MATTERS ")
 vid=open("example.mp4","rb")
 st.video(vid)
 st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True)
-st.write("# Diabetes Rates by Country 2021")
+st.write("## Diabetes Rates by Country 2021")
 st.write("Please input country's name: (Example:India)")
 c=st.text_input(" ")
 sv=pd.read_csv('csvData.csv')
@@ -34,7 +34,7 @@ elif option=='Last 10':
 else:
     st.write("Please select")
 
-st.write("Now, lets fill the diabetes prediction form.(Please untick hide button   After fill the form. Please click predict to get the result")
+st.write("Now, lets fill the diabetes prediction form.(Please untick hide button). After fill the form. Please click predict to get the result")
 
 st.sidebar.header('Diabetes Prediction')
 select = st.sidebar.selectbox('Select Form', ['Form 1'], key='1')
