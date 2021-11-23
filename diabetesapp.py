@@ -6,14 +6,37 @@ import pickle
 pickle_in = open('logisticRegr.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
+st.write('Before you continue, please read the [terms and conditions](https://www.gnu.org/licenses/gpl-3.0.en.html)')
+show = st.checkbox('I agree the terms and conditions')
+st.title(" ~Welcome to Diabetes's Info~")
+st.write("Diabetes is a disease in which your blood glucose (blood sugar) levels are too high.     Glucose comes from food and insulin is a hormone that is created     in the body to help glucose get into cells to give them energy.")
+st.write("DIABETES AWARENESS BECAUSE IT MATTERS ")
+vid=open("example.mp4","rb")
+st.video(vid)
+st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True)
+st.write("Diabetes Rates by Country 2021")
+
+st.write("Please input country's name: (Example:India)")
+c=st.text_input(" ")
+sv=pd.read_csv('csvData.csv')
+d=sv[sv['Country'] == c]
+st.write("The number of diabeter's population is: ",d)
+
+option = st.selectbox('Select Diabetes Rates by Country 2021 ', ['Top 10'],['Last 10'])
+if option=='Top 10':
+    t=tallest.head(10)
+    st.write('Top 10 Diabetes Rates: ',t)
+elif option=='Last 10':
+    l=tallest.tail(10)
+    st.write('Last 10 Diabetes Rates: ',l)
+else:
+    st.write("Please select")
+st.write("Now, lets fill the diabetes prediction form.(Please untick hide button)")
+
 st.sidebar.header('Diabetes Prediction')
 select = st.sidebar.selectbox('Select Form', ['Form 1'], key='1')
 if not st.sidebar.checkbox("Hide and Refill Form", True, key='1'):
     st.title('Diabetes Prediction(Only for females above 21years of    Age)')
-    st.write(" DIABETES AWARENESS BECAUSE IT MATTERS ")
-    vid=open("example.mp4","rb")
-    st.video(vid)
-    st.markdown("<span style=“background-color:#121922”>",unsafe_allow_html=True)
     name = st.text_input("Name:")
     pregnancy = st.number_input("No. of times pregnant:")
     glucose = st.number_input("Plasma Glucose Concentration :")
